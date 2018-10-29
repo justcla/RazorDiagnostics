@@ -1,0 +1,2 @@
+﻿Razor Diagnostics - Microsoft DevLabs
+29-Oct-2018: v1.0.0 Initial release
