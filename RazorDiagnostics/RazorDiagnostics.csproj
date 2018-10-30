@@ -16,7 +16,7 @@
     <DelaySign>true</DelaySign>
   </PropertyGroup>
   <ItemGroup>
-    <FilesToSign Include="$(OutDir)\RazorDiagnostics.vsix">
+    <FilesToSign Include="$(OutDir)\RazorDiagnostics.dll">
       <Authenticode>Microsoft</Authenticode>
       <StrongName>StrongName</StrongName>
     </FilesToSign>
@@ -68,7 +68,9 @@
     <Compile Include="RazorDiagnosticsPackage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="FinalPublicKey.snk" />
+    <None Include="FinalPublicKey.snk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <Content Include="Packaging\License.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
