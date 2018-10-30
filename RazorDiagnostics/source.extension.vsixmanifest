@@ -3,22 +3,23 @@
     <Metadata>
         <Identity Id="RazorDiagnostics.1d63b57c-7918-4eb6-8ff3-af9328278666" Version="1.0.0" Language="en-US" Publisher="Microsoft" />
         <DisplayName>Razor Diagnostics</DisplayName>
-        <Description xml:space="preserve">Diagnose issues with Razor (cshtml) files.
+        <Description xml:space="preserve">Tools to help diagnose issues with Razor (cshtml) files.
 Provides an item in the Tools menu to Output Razor Diagnostics information.</Description>
-        <MoreInfo>https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.RazorDiagnostics</MoreInfo>
+        <MoreInfo>https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.RazorDiagnosticsTools</MoreInfo>
         <License>Packaging\License.rtf</License>
         <GettingStartedGuide>https://github.com/alexgav/RazorDiagnostics</GettingStartedGuide>
         <ReleaseNotes>https://github.com/alexgav/RazorDiagnostics/blob/master/RazorDiagnostics/Packaging/ReleaseNotes.txt</ReleaseNotes>
+        <Tags>Razor;Diagnostics</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.8, 15.9)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0.28010, 16.0)" />
     </Installation>
     <Dependencies>
         <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
         <Dependency Id="Microsoft.VisualStudio.MPF.15.0" DisplayName="Visual Studio MPF 15.0" d:Source="Installed" Version="[15.0]" />
     </Dependencies>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.8.27729.1,15.9)" DisplayName="Visual Studio core editor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
     </Prerequisites>
     <Assets>
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />

@@ -1,10 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Design;
-using System.Globalization;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 using RazorDiagnostics.DiagnosticUtilities;
 using Task = System.Threading.Tasks.Task;
 
@@ -24,6 +21,8 @@ namespace RazorDiagnostics.Commands
         /// Command menu group (command set GUID).
         /// </summary>
         public static readonly Guid CommandSet = new Guid("aaf4d89c-f285-42d7-95b4-9fec65577fc2");
+
+        private const string RAZOR_MESSAGE_BOX_TITLE = "Razor Diagnostics";
 
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -91,12 +90,45 @@ namespace RazorDiagnostics.Commands
         {
             ThreadHelper.ThrowIfNotOnUIThread();
 
-            OutputWindow.Show();
-            OutputWindow.OutputString($"Visual Studio Binary in {InstallationStateUtilities.IDEPath}:\r\n    {InstallationStateUtilities.IDEInfo}\r\n");
-            OutputWindow.OutputString($"Is Razor Dependency Installed:\r\n    {InstallationStateUtilities.IsRazorDependencyInstalled}\r\n");
-            OutputWindow.OutputString($"Installed Web Editor Assemblies in {InstallationStateUtilities.WebEditorFolder}: \r\n{InstallationStateUtilities.InstalledWebEditorAssemblies}\r\n");
-            OutputWindow.OutputString($"Installed Web Editor .Net Core Razor Assemblies in {InstallationStateUtilities.WebEditorRazor4Folder}: \r\n{InstallationStateUtilities.InstalledWebEditorRazorV4Assemblies}\r\n");
-            OutputWindow.OutputString($"Installed Razor Extension Assemblies in {InstallationStateUtilities.RazorExtensionFolder}: \r\n{InstallationStateUtilities.InstalledRazorExtensionAssemblies}\r\n");
+            try
+            {
+                OutputWindow.Show();
+                OutputWindow.OutputString($"Visual Studio Binary in {InstallationStateUtilities.IDEPath}:\r\n    {InstallationStateUtilities.IDEInfo}\r\n");
+                OutputWindow.OutputString($"Is Razor Dependency Installed:\r\n    {InstallationStateUtilities.IsRazorDependencyInstalled}\r\n");
+                OutputWindow.OutputString($"Installed Web Editor Assemblies in {InstallationStateUtilities.WebEditorFolder}: \r\n{InstallationStateUtilities.InstalledWebEditorAssemblies}\r\n");
+                OutputWindow.OutputString($"Installed Web Editor .Net Core Razor Assemblies in {InstallationStateUtilities.WebEditorRazor4Folder}: \r\n{InstallationStateUtilities.InstalledWebEditorRazorV4Assemblies}\r\n");
+                OutputWindow.OutputString($"Installed Razor Extension Assemblies in {InstallationStateUtilities.RazorExtensionFolder}: \r\n{InstallationStateUtilities.InstalledRazorExtensionAssemblies}\r\n");
+
+                PopSuccessMessage();
+                OutputWindow.Show();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception occurred while attempting to output Razor diagnostics.", ex);
+                PopFailureMessage(ex.Message);
+            }
         }
+
+        private static void PopSuccessMessage()
+        {
+            const string Message = "Razor diagnostics information has been printed to the Output window.\n" +
+                "Open the Output window to read and copy the text.";
+
+            ShowRazorMessageBox(Message, MessageBoxIcon.Information);
+        }
+
+        private static void PopFailureMessage(string message)
+        {
+            string Message = $"Something went wrong while attempting to output Razor diagnostics information\n\n" +
+                $"Error message: {message}\n\n" +
+                $"Check the Output window for details.";
+
+            ShowRazorMessageBox(Message, MessageBoxIcon.Error);
+        }
+        private static void ShowRazorMessageBox(string message, MessageBoxIcon messageBoxIcon)
+        {
+            MessageBox.Show(message, RAZOR_MESSAGE_BOX_TITLE, MessageBoxButtons.OK, messageBoxIcon);
+        }
+
     }
 }

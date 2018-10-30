@@ -39,7 +39,7 @@ namespace RazorDiagnostics
 
                 if (ErrorHandler.Succeeded(hr) && outputWindowFrame != null)
                 {
-                    hr = outputWindowFrame.ShowNoActivate();
+                    hr = outputWindowFrame.Show();
                     if (ErrorHandler.Succeeded(hr) && OutputPane != null)
                     {
                         OutputPane.Activate();
