@@ -16,7 +16,7 @@
     <DelaySign>true</DelaySign>
   </PropertyGroup>
   <ItemGroup>
-    <FilesToSign Include="$(OutDir)\RazorDiagnostics.dll">
+    <FilesToSign Include="$(OutDir)\RazorDiagnostics.vsix">
       <Authenticode>Microsoft</Authenticode>
       <StrongName>StrongName</StrongName>
     </FilesToSign>
