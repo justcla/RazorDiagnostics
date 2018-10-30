@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+     <GetVsixSourceItemsDependsOn>$(GetVsixSourceItemsDependsOn);SignIntermediateAssembly</GetVsixSourceItemsDependsOn>
+  </PropertyGroup>
+  <Target Name="SignIntermediateAssembly" Condition="'$(SignType)' == 'real' and '$(IncludeAssemblyInVSIXContainer)'=='true'">
+    <ItemGroup>
+      <IntermediateAssemblyToSign Include="@(IntermediateAssembly)">
+        <Authenticode>Microsoft</Authenticode>
+        <StrongName>StrongName</StrongName>
+      </IntermediateAssemblyToSign>
+    </ItemGroup>
+    <Message Importance="high" Text="Signing intermediate assembly '@(IntermediateAssemblyToSign)' before packaging it to vsix container" />
+    <SignFiles Files="@(IntermediateAssemblyToSign)" Type="$(SignType)" BinariesDirectory="$(OutDir)" IntermediatesDirectory="$(IntermediateOutputPath)" />
+  </Target>  
+</Project>
