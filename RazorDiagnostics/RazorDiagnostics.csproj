@@ -17,8 +17,7 @@
   </PropertyGroup>
   <ItemGroup>
     <FilesToSign Include="$(OutDir)\RazorDiagnostics.vsix">
-      <Authenticode>Microsoft</Authenticode>
-      <StrongName>StrongName</StrongName>
+      <Authenticode>VsixSHA2</Authenticode>
     </FilesToSign>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
