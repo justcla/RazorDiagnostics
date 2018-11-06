@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="RazorDiagnostics.1d63b57c-7918-4eb6-8ff3-af9328278666" Version="1.0.0" Language="en-US" Publisher="Microsoft" />
+        <Identity Id="RazorDiagnostics.1d63b57c-7918-4eb6-8ff3-af9328278666" Version="1.0.1" Language="en-US" Publisher="Microsoft" />
         <DisplayName>Razor Diagnostics</DisplayName>
         <Description xml:space="preserve">Tools to help diagnose issues with Razor (cshtml) files.
 Provides an item in the Tools menu to Output Razor Diagnostics information.</Description>
@@ -9,6 +9,7 @@ Provides an item in the Tools menu to Output Razor Diagnostics information.</Des
         <License>Packaging\License.rtf</License>
         <GettingStartedGuide>https://github.com/alexgav/RazorDiagnostics</GettingStartedGuide>
         <ReleaseNotes>https://github.com/alexgav/RazorDiagnostics/blob/master/RazorDiagnostics/Packaging/ReleaseNotes.txt</ReleaseNotes>
+        <Icon>Packaging\Market_RazorDiagnostics.png</Icon>
         <Tags>Razor;Diagnostics</Tags>
     </Metadata>
     <Installation>

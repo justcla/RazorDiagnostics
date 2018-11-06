@@ -16,7 +16,7 @@
     <DelaySign>true</DelaySign>
   </PropertyGroup>
   <ItemGroup>
-    <FilesToSign Include="$(OutDir)\RazorDiagnostics.vsix">
+    <FilesToSign Include="bin\Release\\RazorDiagnostics.vsix">
       <Authenticode>VsixSHA2</Authenticode>
     </FilesToSign>
   </ItemGroup>
@@ -86,6 +86,10 @@
     <VSCTCompile Include="RazorDiagnosticsPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
     </VSCTCompile>
+    <Content Include="Packaging\Market_RazorDiagnostics.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Packaging\ReleaseNotes.txt" />
     <Content Include="Packaging\RazorDiagnosticsPackage.ico" />
   </ItemGroup>
