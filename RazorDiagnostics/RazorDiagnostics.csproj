@@ -86,7 +86,7 @@
     <VSCTCompile Include="RazorDiagnosticsPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
     </VSCTCompile>
-    <Content Include="Packaging\Market_RazorDiagnostics.png">
+    <Content Include="Packaging\Market_RazorDiagnostics_128x.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
